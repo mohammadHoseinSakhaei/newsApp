@@ -16,6 +16,16 @@ subprojects {
     project.evaluationDependsOn(":app")
 }
 
+subprojects {
+    plugins.withType<com.android.build.gradle.BasePlugin> {
+        val android = extensions.getByName("android") as com.android.build.gradle.BaseExtension
+        if (android.namespace.isNullOrEmpty()) {
+            android.namespace = "com.news.app.newsapp.${name}"
+        }
+    }
+}
+
+
 tasks.register<Delete>("clean") {
     delete(rootProject.layout.buildDirectory)
 }
