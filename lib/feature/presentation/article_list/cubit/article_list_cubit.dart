@@ -4,21 +4,21 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:injectable/injectable.dart';
 import 'package:newsapp/core/utils/date_utils.dart';
 import 'package:newsapp/feature/domain/entities/news_entity.dart';
-import 'package:newsapp/feature/domain/usecase/news_usecase.dart';
+import 'package:newsapp/feature/domain/usecase/article_usecase.dart';
 
-part 'news_list_cubit.freezed.dart';
-part 'news_list_state.dart';
+part 'article_list_cubit.freezed.dart';
+part 'article_list_state.dart';
 
 @injectable
-class NewsListCubit extends Cubit<NewsListState> {
-  NewsListCubit(this._newsListUseCase) : super(const NewsListState.initial()) {
+class ArticleListCubit extends Cubit<ArticleListState> {
+  ArticleListCubit(this._newsListUseCase) : super(const ArticleListState.initial()) {
     loadAllNews(1);
     _pagingController.addPageRequestListener((pageKey) {
       loadAllNews(pageKey);
     });
   }
 
-  final NewsListUseCase _newsListUseCase;
+  final ArticleListUseCase _newsListUseCase;
   final PagingController<int, ArticleEntity> _pagingController = PagingController(firstPageKey: 1);
 
   PagingController<int, ArticleEntity> get pagingController => _pagingController;

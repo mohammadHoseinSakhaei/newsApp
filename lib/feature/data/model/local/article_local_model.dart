@@ -1,7 +1,7 @@
 import 'package:isar/isar.dart';
 import 'package:newsapp/feature/domain/entities/news_entity.dart';
 
-part 'news_local_model.g.dart';
+part 'article_local_model.g.dart';
 
 @Collection()
 class ArticleLocal {

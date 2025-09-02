@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 import 'package:isar/isar.dart';
-import 'package:newsapp/feature/data/model/local/news_local_model.dart';
+import 'package:newsapp/feature/data/model/local/article_local_model.dart';
 import 'package:path_provider/path_provider.dart';
 
 @LazySingleton()

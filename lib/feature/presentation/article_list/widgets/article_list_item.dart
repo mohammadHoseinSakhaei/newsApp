@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsapp/core/utils/date_utils.dart';
 import 'package:newsapp/feature/domain/entities/news_entity.dart';
-import 'package:newsapp/feature/presentation/news_detail/news_detail_page.dart';
+import 'package:newsapp/feature/presentation/article_detail/article_detail_page.dart';
 import 'package:newsapp/theme/colors.dart';
 import 'package:newsapp/theme/text_styles.dart';
 import 'package:newsapp/widgets/image_loading_service.dart';
 
-class NewsListItem extends StatelessWidget {
-  const NewsListItem({super.key, required this.articleEntity});
+class ArticleListItem extends StatelessWidget {
+  const ArticleListItem({super.key, required this.articleEntity});
 
   final ArticleEntity articleEntity;
 
@@ -16,7 +16,7 @@ class NewsListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewsDetailPage(articleTitle: articleEntity.title),));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ArticleDetailPage(articleTitle: articleEntity.title),));
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 16.h, left: 12.w, right: 12.w, top: 24.h),

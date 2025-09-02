@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'news_detail_cubit.dart';
+part of 'article_detail_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$NewsDetailState {
+mixin _$ArticleDetailState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
@@ -63,16 +63,16 @@ mixin _$NewsDetailState {
 }
 
 /// @nodoc
-abstract class $NewsDetailStateCopyWith<$Res> {
-  factory $NewsDetailStateCopyWith(
-          NewsDetailState value, $Res Function(NewsDetailState) then) =
-      _$NewsDetailStateCopyWithImpl<$Res, NewsDetailState>;
+abstract class $ArticleDetailStateCopyWith<$Res> {
+  factory $ArticleDetailStateCopyWith(
+          ArticleDetailState value, $Res Function(ArticleDetailState) then) =
+      _$ArticleDetailStateCopyWithImpl<$Res, ArticleDetailState>;
 }
 
 /// @nodoc
-class _$NewsDetailStateCopyWithImpl<$Res, $Val extends NewsDetailState>
-    implements $NewsDetailStateCopyWith<$Res> {
-  _$NewsDetailStateCopyWithImpl(this._value, this._then);
+class _$ArticleDetailStateCopyWithImpl<$Res, $Val extends ArticleDetailState>
+    implements $ArticleDetailStateCopyWith<$Res> {
+  _$ArticleDetailStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -89,7 +89,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$NewsDetailStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$ArticleDetailStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -103,7 +103,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'NewsDetailState.loading()';
+    return 'ArticleDetailState.loading()';
   }
 
   @override
@@ -184,7 +184,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements NewsDetailState {
+abstract class _Initial implements ArticleDetailState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -201,7 +201,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$NewsDetailStateCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$ArticleDetailStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
@@ -239,7 +239,7 @@ class _$SuccessImpl implements _Success {
 
   @override
   String toString() {
-    return 'NewsDetailState.success(article: $article)';
+    return 'ArticleDetailState.success(article: $article)';
   }
 
   @override
@@ -328,7 +328,7 @@ class _$SuccessImpl implements _Success {
   }
 }
 
-abstract class _Success implements NewsDetailState {
+abstract class _Success implements ArticleDetailState {
   const factory _Success(final ArticleEntity article) = _$SuccessImpl;
 
   ArticleEntity get article;
@@ -348,7 +348,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$NewsDetailStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$ArticleDetailStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -378,7 +378,7 @@ class _$ErrorImpl implements _Error {
 
   @override
   String toString() {
-    return 'NewsDetailState.error(exception: $exception)';
+    return 'ArticleDetailState.error(exception: $exception)';
   }
 
   @override
@@ -468,7 +468,7 @@ class _$ErrorImpl implements _Error {
   }
 }
 
-abstract class _Error implements NewsDetailState {
+abstract class _Error implements ArticleDetailState {
   const factory _Error(final AppException exception) = _$ErrorImpl;
 
   AppException get exception;

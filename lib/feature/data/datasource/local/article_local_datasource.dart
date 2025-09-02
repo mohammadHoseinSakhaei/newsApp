@@ -3,10 +3,10 @@ import 'package:isar/isar.dart';
 import 'package:newsapp/core/data_result/data_result.dart';
 import 'package:newsapp/core/exceptions/exceptions.dart';
 import 'package:newsapp/core/services/isar/isar.dart';
-import 'package:newsapp/feature/data/model/local/news_local_model.dart';
+import 'package:newsapp/feature/data/model/local/article_local_model.dart';
 import 'package:newsapp/feature/domain/entities/news_entity.dart';
 
-abstract class INewsLocalDataSource {
+abstract class IArticleLocalDataSource {
   Future<DataResult<void>> cacheArticles(List<ArticleEntity> articles);
 
   Future<DataResult<List<ArticleEntity>>> getCachedArticles();
@@ -14,9 +14,9 @@ abstract class INewsLocalDataSource {
   Future<DataResult<ArticleEntity>> fetchArticle(String articleTitle);
 }
 
-@Injectable(as: INewsLocalDataSource)
-class NewsLocalDataSourceImpl implements INewsLocalDataSource {
-  NewsLocalDataSourceImpl({required IsarService isarService}) : _isarService = isarService;
+@Injectable(as: IArticleLocalDataSource)
+class ArticleLocalDataSourceImpl implements IArticleLocalDataSource {
+  ArticleLocalDataSourceImpl({required IsarService isarService}) : _isarService = isarService;
 
   final IsarService _isarService;
 

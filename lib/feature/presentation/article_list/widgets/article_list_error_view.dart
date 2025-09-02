@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class NewsListErrorView extends StatelessWidget {
-  const NewsListErrorView({super.key, required this.onPressed});
+class ArticleListErrorView extends StatelessWidget {
+  const ArticleListErrorView({super.key, required this.onPressed});
 
   final GestureTapCallback onPressed;
 

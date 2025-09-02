@@ -5,8 +5,8 @@ import 'package:newsapp/core/env/environment_variables.dart';
 import 'package:newsapp/core/exceptions/exceptions.dart';
 import 'package:newsapp/feature/data/model/remote/news_model.dart';
 
-abstract class INewsRemoteDataSource {
-  Future<DataResult<NewsModel>> fetchNewsList({
+abstract class IArticleRemoteDataSource {
+  Future<DataResult<NewsModel>> fetchArticles({
     required String query,
     required int page,
     required String from,
@@ -14,14 +14,14 @@ abstract class INewsRemoteDataSource {
   });
 }
 
-@Injectable(as: INewsRemoteDataSource)
-class NewsRemoteDataSourceImpl implements INewsRemoteDataSource {
-  NewsRemoteDataSourceImpl({required Dio httpClient}) : _httpClient = httpClient;
+@Injectable(as: IArticleRemoteDataSource)
+class ArticleRemoteDatasource implements IArticleRemoteDataSource {
+  ArticleRemoteDatasource({required Dio httpClient}) : _httpClient = httpClient;
 
   final Dio _httpClient;
 
   @override
-  Future<DataResult<NewsModel>> fetchNewsList({
+  Future<DataResult<NewsModel>> fetchArticles({
     required String query,
     required int page,
     required String from,

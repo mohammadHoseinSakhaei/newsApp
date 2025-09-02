@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:newsapp/theme/colors.dart';
 import 'package:newsapp/theme/text_styles.dart';
 
-class NewsAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const NewsAppBar({super.key});
+class ArticleListAppbar extends StatelessWidget implements PreferredSizeWidget {
+  const ArticleListAppbar({super.key});
 
   @override
   Widget build(BuildContext context) {

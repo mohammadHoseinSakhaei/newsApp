@@ -12,7 +12,7 @@ ThemeData appDefaultTheme() {
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: AppBarTheme(
       elevation: 0,
-      color: Colors.black,
+      color: Colors.white,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.white,
         statusBarIconBrightness: Brightness.dark,

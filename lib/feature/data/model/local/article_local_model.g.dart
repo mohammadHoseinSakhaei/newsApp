@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'news_local_model.dart';
+part of 'article_local_model.dart';
 
 // **************************************************************************
 // IsarCollectionGenerator

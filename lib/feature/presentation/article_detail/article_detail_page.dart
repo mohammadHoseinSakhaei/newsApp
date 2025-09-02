@@ -2,29 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsapp/di/dependency_provider.dart';
-import 'package:newsapp/feature/presentation/news_detail/cubit/news_detail_cubit.dart';
+import 'package:newsapp/feature/presentation/article_detail/cubit/article_detail_cubit.dart';
 import 'package:newsapp/theme/text_styles.dart';
 import 'package:newsapp/widgets/image_loading_service.dart';
 
-class NewsDetailPage extends StatelessWidget {
-  const NewsDetailPage({super.key, required this.articleTitle});
+class ArticleDetailPage extends StatelessWidget {
+  const ArticleDetailPage({super.key, required this.articleTitle});
 
   final String articleTitle;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.white,),
       body: BlocProvider(
-        create: (context) => getIt.get<NewsDetailCubit>(param1: articleTitle)..fetchData(),
-        child: BlocBuilder<NewsDetailCubit, NewsDetailState>(
+        create: (context) => getIt.get<ArticleDetailCubit>(param1: articleTitle)..fetchData(),
+        child: BlocBuilder<ArticleDetailCubit, ArticleDetailState>(
           builder: (context, state) {
             return state.when(
               loading: () => SafeArea(child: Center(child: CircularProgressIndicator())),
               success: (article) => SafeArea(
                 top: true,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    IconButton(icon: Icon(Icons.arrow_back_ios_new_outlined),onPressed: ()=> Navigator.pop(context)),
                     ImageLoadingService(imageUrl: article.urlToImage,width: double.infinity,fit: BoxFit.cover,),
                     SingleChildScrollView(
                       child: Container(

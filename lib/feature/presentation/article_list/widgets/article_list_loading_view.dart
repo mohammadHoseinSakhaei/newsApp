@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsapp/theme/colors.dart';
 import 'package:newsapp/widgets/shimmer.dart';
 
-class NewsListLoadingView extends StatelessWidget {
-  const NewsListLoadingView({super.key});
+class ArticleListLoadingView extends StatelessWidget {
+  const ArticleListLoadingView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newsapp/core/env/environment_variables.dart';
 import 'package:newsapp/core/services/isar/isar.dart';
 import 'package:newsapp/di/dependency_provider.dart';
-import 'package:newsapp/feature/presentation/news_list/news_list_page.dart';
+import 'package:newsapp/feature/presentation/article_list/article_list_page.dart';
 import 'package:newsapp/theme/theme.dart';
 import 'package:newsapp/widgets/adaptive_wrapper.dart';
 
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       title: 'News Watch',
       debugShowCheckedModeBanner: false,
       theme: appDefaultTheme(),
-      home: NewsListPage(),
+      home: ArticleListPage(),
     );
   }
 }
