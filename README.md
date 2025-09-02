@@ -54,7 +54,7 @@ git clone https://github.com/yourusername/flutter-offline-news-app.git
 cd flutter-offline-news-app
 ```
 
-1. **Install dependencies:**
+2. **Install dependencies:**
 ```bash
 flutter pub get
 ```
