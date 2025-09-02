@@ -35,7 +35,7 @@ class ArticleRemoteDatasource implements IArticleRemoteDataSource {
           'from': from,
           'to': to,
           'page': page,
-          'pageSize': 20,
+          'pageSize': 10,
           'sortBy': "publishedAt",
           'apiKey': EnvironmentVariables.apiKey,
         },
