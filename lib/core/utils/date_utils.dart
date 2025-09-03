@@ -1,7 +1,7 @@
 class AppDateUtils {
   static Map<String, String> getDateRange() {
     final now = DateTime.now();
-    final yesterday = now.subtract(const Duration(days: 2));
+    final yesterday = now.subtract(const Duration(days: 1));
 
     String formatDate(DateTime date) {
       return "${date.year.toString().padLeft(4, '0')}-"

@@ -25,7 +25,7 @@ class ArticleRepositoryImpl implements IArticleRepository {
     required String to,
   }) async {
     final queries = ['microsoft', 'apple', 'google', 'tesla'];
-    List<ArticleEntity> allArticles = [];
+    final Map<String, List<ArticleEntity>> groupedArticles = {};
 
     try {
       for (final q in queries) {
@@ -39,7 +39,11 @@ class ArticleRepositoryImpl implements IArticleRepository {
         if (remoteResponse.isSuccess) {
           final newsModel = remoteResponse.data!;
           final articles = newsModel.articles.map((a) => a.toEntity()).toList();
-          allArticles.addAll(articles);
+
+          ///sorted by last date
+          articles.sort((a, b) => b.publishedAt.compareTo(a.publishedAt));
+
+          groupedArticles[q] = articles;
         } else {
           final error = remoteResponse.error!;
           if (error is NetworkFailure) {
@@ -50,10 +54,22 @@ class ArticleRepositoryImpl implements IArticleRepository {
           }
         }
       }
-      ///arrange articles sequentially from different queries
-      final arranged = _interleaveArticles(allArticles, queries);
 
-      ///cache the arranged articles
+
+      List<ArticleEntity> arranged = _interleaveArticlesFromGroups(groupedArticles, queries);
+
+      final seenUrls = <String>{};
+      arranged = arranged.where((a) {
+        final url = a.title;
+        if (seenUrls.contains(url)) {
+          return false;
+        } else {
+          seenUrls.add(url);
+          return true;
+        }
+      }).toList();
+
+      ///cached data
       await _localDataSource.cacheArticles(arranged);
 
       return DataResult.success(arranged);
@@ -61,26 +77,32 @@ class ArticleRepositoryImpl implements IArticleRepository {
       final localResult = await _localDataSource.getCachedArticles();
       return localResult;
     }
+
   }
 
-  List<ArticleEntity> _interleaveArticles(List<ArticleEntity> articles, List<String> order) {
-    final grouped = {for (var q in order) q: articles.where((a) => a.query.toLowerCase() == q.toLowerCase()).toList()};
+  List<ArticleEntity> _interleaveArticlesFromGroups(
+      Map<String, List<ArticleEntity>> groupedArticles,
+      List<String> queries,
+      ) {
+    final List<ArticleEntity> result = [];
+    int index = 0;
 
-    final arranged = <ArticleEntity>[];
-    bool hasItems;
+    while (true) {
+      bool added = false;
 
-    do {
-      hasItems = false;
-      for (var q in order) {
-        final list = grouped[q]!;
-        if (list.isNotEmpty) {
-          arranged.add(list.removeAt(0));
-          hasItems = true;
+      for (final q in queries) {
+        final group = groupedArticles[q];
+        if (group != null && index < group.length) {
+          result.add(group[index]);
+          added = true;
         }
       }
-    } while (hasItems);
 
-    return arranged;
+      if (!added) break;
+      index++;
+    }
+
+    return result;
   }
 
   @override
